@@ -13,10 +13,10 @@ def minOperations(n):
     # If n is 1 or less, no operations are needed
     if n <= 1:
         return 0
-    
+
     operations = 0
     factor = 2
-    
+
     # Continue until the factor's square is greater than n
     while factor * factor <= n:
         # While n is divisible by the current factor
@@ -27,9 +27,9 @@ def minOperations(n):
             n //= factor
         # Move to the next potential factor
         factor += 1
-    
+
     # If n is still greater than 1, it's a prime factor itself
     if n > 1:
         operations += n
-    
+
     return operations
