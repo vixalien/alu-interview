@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Minimum operation function
+"""
 from math import sqrt
 
 
