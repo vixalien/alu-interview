@@ -2,7 +2,7 @@
 """
 Minimum operation function
 """
-from math import sqrt
+from math import sqrt, floor
 
 
 def minOperations(n):
@@ -16,18 +16,22 @@ def minOperations(n):
         return n
     else:
         prime = small_prime(n)
-        return prime + minOperations(int(n/prime))
+        if prime:
+            return prime + minOperations(int(n/prime))
 
 
 def is_prime(n):
     """
     Check if it's a prime number
     """
-    result = True
-    for i in range(2, int(sqrt(n) + 1)):
-        if n % 2 == 0:
-            result = False
-    return result
+    if n <= 1: return False
+    if n == 2: return True
+    if n % 2 == 0: return False
+
+    for i in range(3, floor(sqrt(n)), 2):
+        if n % i == 0:
+            return False
+    return True
 
 
 def small_prime(n):
